@@ -1,6 +1,6 @@
 #  Projeye Bakış
 Bu projemde CQRS,Mediator Design Patter kullanrak araç kiralama projesi yaptım, projemde kullanıcı araçlar ve kendi istediği araçlarda ki lokasyonu görerek seçim yapabilir. 
-Admin temasında ise admin araç,lokasyon,araç özelliği ekleme vb. işlemleri yapabilir.
+Admin temasında ise admin araç,lokasyon,araç özelliği ekleme,s,lme,güncelleme gibi işlemleri yapabilir.
 
 #  Kullanılan Teknolojiler
 - ASP.NET CORE 6.0
