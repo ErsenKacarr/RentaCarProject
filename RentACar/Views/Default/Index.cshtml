@@ -1,0 +1,97 @@
+﻿@model RentACar.MediatorPattern.Results.LocationResults.GetLocationQueryResult
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<style>
+
+    #drop option {
+        color: black;
+    }
+</style>
+
+<!doctype html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadLayoutComponentPartial")
+
+<body >
+
+    <div class="site-wrap" id="home-section">
+
+        @await Component.InvokeAsync("_NavbarLayoutComponentPartial")
+
+        <div class="hero" style="background-image: url('/carrentals-master/images/hero_1_a.jpg');">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-10">
+
+                        <div class="row mb-5">
+                            <div class="col-lg-7 intro">
+                                <h1>Araç Kiralama parmaklarınızın ucunda.</h1>
+                            </div>
+                        </div>
+                        <form method="post" class="trip-form" action="/RentACarList/Index/">
+                            <div class="row align-items-center">
+
+                                <div class="mb-3 mb-md-0 col-md-3">
+                                    <select name="" id="" class="custom-select form-control">
+                                        <option value="">Araç Türleri</option>
+                                        <option value="">Mercedes</option>
+                                        <option value="">FIAT</option>
+                                        <option value="">Ford</option>
+                                        <option value="">BMW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 mb-md-0 col-md-3">
+                                    <div class="form-control-wrap">
+                                        <input type="text" id="bookpickdate" name="bookpickdate" placeholder="Alış Tarihi" class="form-control datepicker px-3">
+                                        <span class="icon icon-date_range"></span>
+
+                                    </div>
+                                </div>
+                                <div class="mb-3 mb-md-0 col-md-3">
+                                    <div class="form-control-wrap">
+                                        <input type="text" id="bookoffdate" name="bookoffdate" placeholder="Teslim Tarihi" class="form-control datepicker px-3">
+                                        <span class="icon icon-date_range"></span>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <div class="mb-3 mb-md-0 col-md-3">
+
+                                        @Html.DropDownListFor(x => x.LocationID, (List<SelectListItem>)ViewBag.v, "Alınacak Lokasyon", new { @class = "custom-select form-control" })
+                                </div>
+                                <div class="mb-3 mb-md-0 col-md-3">
+                                    <div class="form-control-wrap">
+                                        <input type="text" id="cf-4" placeholder="Teslim Lokasyonu" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="mb-3 mb-md-0 col-md-3">
+                                    <button type="submit" class="btn btn-primary">Hemen Ara</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    @await Component.InvokeAsync("_DefaultLastCarsWithBrandsComponentPartial")
+    <br />
+    <br />
+    <br />
+    @await Component.InvokeAsync("_FooterLayoutComponentPartial")
+
+    </div>
+
+    @await Component.InvokeAsync("_ScriptLayoutComponentPartial")
+
+</body>
+
+</html>

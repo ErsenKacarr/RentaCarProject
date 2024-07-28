@@ -1,0 +1,31 @@
+﻿@model RentACar.MediatorPattern.Commands.PricingCommands.CreatePricingCommand
+
+@{
+    ViewData["Title"] = "CreatePricing";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="content-wrapper">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Ödeme Süresi Girişi</h3>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputName">Ödeme Süreleri</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Ödeme Sürelerini Giriniz">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ödeme Sürelerini Kaydet</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

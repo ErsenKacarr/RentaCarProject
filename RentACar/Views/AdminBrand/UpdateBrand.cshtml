@@ -1,0 +1,32 @@
+﻿@model RentACar.CQRS.Results.BrandResults.GetBrandByIdQueryResult
+
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="content-wrapper">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Araç Marka Girişi</h3>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="BrandID" />
+                                <label for="exampleInputName">Marka Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Marka Adı Girişi Yapınız">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Marka Kaydet</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

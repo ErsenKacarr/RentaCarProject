@@ -1,0 +1,31 @@
+﻿@model RentACar.MediatorPattern.Commands.LocationCommands.CreateLocationCommand
+
+@{
+    ViewData["Title"] = "CreateLocation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="content-wrapper">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Lokasyon Girişi</h3>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputName">Lokasyon Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="LocationName" placeholder="Lokasyon Girişi Yapınız">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lokasyon Bilgisini Kaydet</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

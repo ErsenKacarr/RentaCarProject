@@ -1,0 +1,33 @@
+﻿@model RentACar.MediatorPattern.Results.PricingResults.GetPricingByIdQueryResult
+
+@{
+    ViewData["Title"] = "UpdatePricing";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="content-wrapper">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Ödeme Süresi Güncelleme</h3>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" asp-for="PricingID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="PricingID" />
+                                <label for="exampleInputName">Ödeme Süreleri</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Ödeme Sürelerini Giriniz">
+                            </div>
+                            <button type="submit" class="btn btn-success">Ödeme Sürelerini Güncelle</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

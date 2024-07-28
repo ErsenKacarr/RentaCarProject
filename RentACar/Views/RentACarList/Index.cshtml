@@ -1,0 +1,165 @@
+﻿@model List<RentACar.MediatorPattern.Results.RentACarResults.GetRentACarQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<head>
+    <title>Car Rent &mdash; Free Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/carrent-master/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/carrent-master/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/carrent-master/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/carrent-master/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/carrent-master/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/carrent-master/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/carrent-master/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/carrent-master/css/aos.css">
+
+    <link rel="stylesheet" href="~/carrent-master/css/style.css">
+
+</head>
+
+<div class="site-wrap" id="home-section">
+
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar site-navbar-target" role="banner">
+
+        <div class="container">
+            <div class="row align-items-center position-relative">
+
+                <div class="col-3 ">
+                    <div class="site-logo">
+                        <a href="index.html">CarRent</a>
+                    </div>
+                </div>
+
+                <div class="col-9  text-right">
+                    <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+                    <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                            <li><a href="index.html" class="nav-link">Home</a></li>
+                            <li><a href="services.html" class="nav-link">Services</a></li>
+                            <li class="active"><a href="cars.html" class="nav-link">Cars</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="blog.html" class="nav-link">Blog</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h2 class="section-heading"><strong>İstediğiniz Lokasyondaki Araçlarımız</strong></h2>
+    <br />
+    <p class="mb-5">Lütfen istediğiniz aracı seçin.</p>
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row">
+
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4 mb-4">
+
+                        <img src="@item.CoverImageUrl" alt="Image" class="img-fluid">
+                        <div class="listing-contents h-100">
+                            <h3>@item.Model</h3>
+                            <div class="rent-price">
+                                <strong>@item.Price</strong><span class="mx-1">/</span>Günlük
+                            </div>
+                            <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                                <div class="listing-feature pr-4">
+                                    <span class="caption">Bagaj Kapasitesi:</span>
+                                    <span class="number">@item.Luggage</span>
+                                </div>
+                                <div class="listing-feature pr-4">
+                                    <span class="caption">Yolcu Kapesitesi:</span>
+                                    <span class="number">@item.Seat</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p><a href="/Car/Index/" class="btn btn-primary btn-sm">Aracı Kirala</a></p>
+                            </div>
+                            <div>
+
+                                <button class="btn btn-success" data-toggle="modal" data-target="#Modal_@Model.IndexOf(item)">
+                                    Detaylar
+                                </button>
+                                <div method="post" action="#">
+                                    <div class="modal-body">
+                                        <label>
+                                            <div class="modal" id="Modal_@Model.IndexOf(item)">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="carModalLabel">Araç Özellikleri</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <div class="modal-body">
+                                                                <div class="listing d-block align-items-stretch">
+                                                                    <div class="listing-img h-100 mr-4 mt-3">
+                                                                        <img src="@item.CoverImageUrl" alt="Image" class="img-fluid" style="width:100%; object-fit:cover;">
+                                                                    </div>
+                                                                    <div class="listing-contents h-100">
+                                                                        <h3>@item.BrandName @item.Model</h3>
+                                                                        <div class="rent-price">
+                                                                            <strong>₺@item.Price</strong><span class="mx-1">/</span>Günlük
+                                                                        </div>
+                                                                        <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                                                                            <div class="listing-feature pr-4">
+                                                                                <span class="caption">Bagaj Hacmi:</span>
+                                                                                <span class="number">@item.Luggage</span>
+                                                                            </div>
+                                                                            <div class="listing-feature pr-4">
+                                                                                <span class="caption">Yolcu:</span>
+                                                                                <span class="number">@item.Seat</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+
+                                                                            <ul>
+                                                                                <li>Kilometre      : @item.Km</li>
+                                                                                <li>Vites          : @item.Transmission</li>
+                                                                                <li>Yolcu Sayısı : @item.Seat Kişi Sayısı</li>
+                                                                                <li>Bagaj Hacmi    : @item.Luggage </li>
+                                                                                <li>Yakıt Türü     : @item.Fuel</li>
+                                                                            </ul>
+                                                                            <hr />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer" style="background-color:white">
+                                                        <p><button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button></p>
+                                                        <button type="submit" class="btn btn-primary">Şimdi Kapat</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }

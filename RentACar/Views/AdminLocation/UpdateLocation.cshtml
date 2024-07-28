@@ -1,0 +1,32 @@
+﻿@model RentACar.MediatorPattern.Results.LocationResults.GetLocationByIdQueryResult
+
+@{
+    ViewData["Title"] = "UpdateLocation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="content-wrapper">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Lokasyon Güncelleme</h3>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="LocationID" />
+                                <label for="exampleInputName">Lokasyon Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="LocationName" placeholder="Lokasyon Girişi Yapınız">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lokasyonu Güncelle</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

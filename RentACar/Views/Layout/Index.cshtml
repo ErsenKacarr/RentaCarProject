@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadLayoutComponentPartial")
+
+
+<body>
+
+
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        @await Component.InvokeAsync("_NavbarLayoutComponentPartial")
+
+        @await Component.InvokeAsync("_RentACarFilterComponentPartial")
+
+        <div class="site-section bg-light">
+            <div class="container">
+               
+                @RenderBody()
+            </div>
+        </div>
+        
+        </div>
+
+
+        @await Component.InvokeAsync("_FooterLayoutComponentPartial")
+
+    </div>
+
+    @await Component.InvokeAsync("_ScriptLayoutComponentPartial")
+</body>
+
+</html>
+
+
+
+
+

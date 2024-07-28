@@ -1,0 +1,59 @@
+﻿@model List<RentACar.CQRS.Results.CarResults.GetCarWithPricingQueryResult>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h2 class="section-heading"><strong>Araç Listesi</strong></h2>
+                <p class="mb-5">Lütfen istediğiniz aracı seçin.</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+
+                    <div class="listing d-block  align-items-stretch">
+                        <div class="listing-img h-100 mr-4">
+                            <img src="@item.CoverImageUrl" alt="Image" class="img-fluid">
+                        </div>
+                        <div class="listing-contents h-100">
+                            <h3>@item.BrandName</h3>
+                            <h3>@item.Model</h3>
+                            <div class="rent-price">
+                                <strong>@item.PricingAmount</strong><span class="mx-1">/</span>Günlük
+                            </div>
+                            <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                                <div class="listing-feature pr-4">
+                                    <span class="caption">@item.Luggage</span>
+                                    <li>Kapı Sayısı</li>
+                                </div>
+                                <div class="listing-feature pr-4">
+                                    <span class="caption">@item.Seat</span>
+                                   <li>Kapı Sayısı</li>
+                                </div>
+                                <div class="listing-feature pr-4">
+                                    <span class="caption">@item.Door</span>
+                                    <li>Kapı Sayısı</li>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos eos at eum, voluptatem quibusdam.</p>
+                                <p><a href="#" class="btn btn-primary btn-sm">Hemen Kirala</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
